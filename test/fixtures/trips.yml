@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  duration: 1
+  cost: 1
+  user: one
+  destination: one
+
+two:
+  duration: 1
+  cost: 1
+  user: two
+  destination: two
