@@ -12,6 +12,8 @@ class TripsController < ApplicationController
   end
 
   def create
+    @current_user.trips<<Trip.create(trip_params)
+    redirect_to user_path(trip.user)
   end
 
   def edit
@@ -29,4 +31,8 @@ class TripsController < ApplicationController
     @trip = Trip.find(params[:id])
   end
 
+  def trip_params
+    params.require(:trip).permit(:duration, :cost, :user_id, :destination_id)
+  end
+ 
 end
