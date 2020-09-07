@@ -5,15 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
 puts "destroying existing seeds"
 
-User.destroy_all 
-Destination.destroy_all 
-Trip.destroy_all 
-Post.destroy_all 
 Comment.destroy_all 
 Tag.destroy_all 
-
+Post.destroy_all 
+Trip.destroy_all 
+User.destroy_all 
+Destination.destroy_all 
 
 puts "seeding users"
 
@@ -21,7 +21,8 @@ puts "seeding users"
 User.create(
     name: Faker::Name.name,  
     age: rand(18..95), 
-    favorite_destination: Faker::Address.city
+    favorite_destination: Faker::Address.city, 
+    password: "password"
 )
 end
 

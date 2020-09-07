@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :find_user, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authorized, only: [:new, :create]
 
   def index
     @users = User.all 
@@ -19,7 +20,7 @@ class UsersController < ApplicationController
       flash[:success] = "WELCOME TRAVELER!"
       redirect_to user_path(@user)
     else 
-      #flash[:my_errors] = @user.errors.full_messages
+      flash[:my_errors] = @user.errors.full_messages
       redirect_to new_user_path
     end 
 
