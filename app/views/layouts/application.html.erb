@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>JVCTravel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "JVC Travel" %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Travel" %>">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
