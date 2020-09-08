@@ -65,6 +65,7 @@ puts "seeding comments"
 Comment.create(
     description:Faker::Quote.famous_last_words, 
     post_id: Post.all.sample.id, 
+    user_id: User.all.sample.id
 )
 end
 
