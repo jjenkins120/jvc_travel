@@ -1,2 +1,34 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1><%= @user.username %></h1>
+
+<img src="<%= @user.profile_img_url %>" alt="<% @user.profile_img_url%>" class="show-img">
+
+<%= flash[:success] %>
+
+<h4>Name: <%= @user.name %></h4>
+<h4>Email: <%= @user.email %></h4>
+<h4>Age: <%= @user.age %></h4>
+<h4>Favorite Destination: <%= @user.favorite_destination %></h4>
+
+<h4> My Posts </h4>
+<% @user.posts.each do |post_instance| %>
+<li><%= link_to post_instance.title, post_path(post_instance.id) %> from "<%= link_to post_instance.trip.title, post_path(post_instance.trip.id)%>" trip
+<% end%>
+
+<h4> My Comments </h4>
+<ul> 
+<% @user.comments.each do |comment_instance| %>
+<li> From <%= link_to comment_instance.post.title, post_path(comment_instance.post.id) %> post by <%= link_to comment_instance.post.user.username, user_path(comment_instance.post.user.id) %>: "<%= comment_instance.description %>" 
+<% end  %>
+</ul>
+
+<p><%= link_to "Back to all users", users_path %></p>
+
+<p><%# button_to "Create a new destination", new_destination_path, method: :get %></p>
+<p><%= button_to "Create a new trip", new_trip_path, method: :get %></p>
+<p><%= button_to "Create a new post", new_post_path, method: :get %></p>
+<p><%= button_to "Comment on a Post", new_comment_path, method: :get %></p>
+<p><%# button_to "Invite a friend to join", new_comment_path, method: :get %></p>
+
+
+
+
