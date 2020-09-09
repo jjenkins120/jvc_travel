@@ -2,7 +2,9 @@ class Post < ApplicationRecord
   belongs_to :trip
   has_one :user, through: :trip
   has_many :comments, :dependent => :destroy
-  has_many :tags, :dependent => :destroy
+  has_many :post_tags
+  has_many :tags, through: :post_tags, :dependent => :destroy
+  accepts_nested_attributes_for :tags
 
   def current_user_trips_cities(current_user)
     user = current_user

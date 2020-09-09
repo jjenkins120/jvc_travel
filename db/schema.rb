@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_08_165532) do
+ActiveRecord::Schema.define(version: 2020_09_09_144349) do
 
   create_table "comments", force: :cascade do |t|
     t.text "description"
@@ -26,6 +26,13 @@ ActiveRecord::Schema.define(version: 2020_09_08_165532) do
     t.string "country"
     t.integer "population"
     t.text "known_for"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "post_tags", force: :cascade do |t|
+    t.integer "post_id"
+    t.integer "tag_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -13,6 +13,7 @@ class PostsController < ApplicationController
     @post = Post.new()
     @current_user = User.third
     @trip_names = @post.current_user_trips_cities(@current_user)
+    @tag = Tag.new
     byebug
   end
 
