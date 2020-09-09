@@ -1,2 +1,34 @@
 <h1>Trips#edit</h1>
-<p>Find me in app/views/trips/edit.html.erb</p>
+
+
+<h1><%=@trip.destination.city%></h1>
+
+
+
+
+<%if flash[:errors]%>
+    <%flash[:errors].each do |error|%>
+    <p style="color: red"><%= error%></p>
+    <%end%>
+<%end%>
+
+
+<%= form_for @trip do |f| %>
+
+
+<p>Trip Details</p>
+	<%= f.label :duration %>
+	<%= f.text_field :duration%><br><br>
+    <%= f.label :cost %>
+	<%= f.text_field :cost%><br><br>
+    <%= f.label :destination %><br><br>
+
+    <%=f.fields_for :destination, @destination do |d|%>
+        <%= d.label :city %>
+        <%= d.text_field :city%><br><br>
+        <%= d.label :country %>
+        <%= d.text_field :country%><br><br>
+    <% end %>
+	<%= f.submit %>
+
+<% end %>

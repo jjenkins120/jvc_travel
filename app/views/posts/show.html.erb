@@ -1,2 +1,26 @@
 <h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+
+
+<div>
+    <p>User <strong><%=@post.user.name%></strong></p>
+    <p>Title <strong><%=@post.title%></strong></p>
+    <p>Description <strong><%=@post.description%></strong></p>
+    <p>Likes <strong><%=@post.likes%></strong></p>
+    <p>ID <strong><%=@post.id%></strong></p>
+    <p>City <strong><%=@post.trip.destination.city%></strong></p>
+    <p>Country <strong><%=@post.trip.destination.country%></strong></p><br><br>
+</div>
+
+
+<button>  
+    <%= link_to "Edit Post", edit_post_path(@post) %>
+</button>
+
+<button>  
+    <%= link_to "Delete Post!!!", @post, method: :delete, data: { confirm: "Do you want to delete your Post?" } %>
+</button>
+
+
+
+
+
