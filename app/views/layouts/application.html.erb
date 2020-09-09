@@ -16,10 +16,12 @@
   </body>
 </html>
 
-    <% if @current_user %>
-        <li> Welcome <%= @current_user.name %>!</li>
-        <li> <%= link_to "Logout", logout_path, method: :delete %> </li>
-      <% else %>
-        <li><%= link_to "Sign-Up", new_user_path %></li>
-        <li><%= link_to "Sign-In", new_login_path %></li>
-      <% end %>
+
+      <% if !logged_in? %>
+      <p>Don't have a profile? Sign up <%= link_to "here", new_user_path %>.</p>
+        <% else  %>
+        <%= link_to "Logout", logout_path, method: :delete, data: { confirm: "Are you sure you want to logout?" } %>
+        <%= link_to "My profile", user_path(current_user)%>
+        <% end%>
+
+  

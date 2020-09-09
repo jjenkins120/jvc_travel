@@ -1,1 +1,16 @@
-<h1>Welcome!</h1>
+<h1>Welcome to the JVC Travel Blog!</h1>
+
+<% if flash[:error]%>
+<%= flash[:error] %>
+<% end%>
+
+
+<%= form_for :session, url: login_path do |f| %>
+<br><%= f.label :username %>
+<br><%= f.text_field :username %>
+
+<br><%= f.label :password %>
+<br><%= f.password_field :password %>
+
+<br><%= f.submit "Sign In"%>
+<% end%>

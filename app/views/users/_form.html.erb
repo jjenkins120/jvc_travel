@@ -6,32 +6,32 @@
 
 
 <%= form_for @user do |f| %>
-<%= f.label :username  %>
-<%= f.text_field :username %>
 
-<%= f.label :password %>
-<%= f.password_field :password %>
+<br><%= f.label :username  %>
+<br><%= f.text_field :username %>
 
-<%= f.label :password_confirmation %>
-<%= f.password_field :password_confirmation %>
+<br><%= f.label :password %>
+<br><%= f.password_field :password %>
 
-<%= f.label :profile_img_url %>
-<%= f.text_field :profile_img_url %>
+<br><%= f.label :password_confirmation %>
+<br><%= f.password_field :password_confirmation %>
 
-<%= f.label :name  %>
-<%= f.text_field :name%>
+<br><%= f.label :profile_img_url %>
+<br><%= f.text_field :profile_img_url %>
 
-<%= f.label :email %>
-<%= f.text_field :email%>
+<br><%= f.label :name  %>
+<br><%= f.text_field :name%>
 
-<%= f.label :age %>
-<%= f.number_field :age%>
+<br><%= f.label :email %>
+<br><%= f.text_field :email%>
 
-<%= f.label :favorite_destination %>
-<%= f.collection_select :favorite_destination, Destination.all, :city, :city%>
+<br><%= f.label :age %>
+<br><%= f.number_field :age%>
 
-<%=f.submit%>
+<br><%= f.label :favorite_destination %>
+<br><%= f.collection_select :favorite_destination, Destination.all, :city, :city%>
+
+<br><%=f.submit "Create Profile", data: { confirm: "Are you sure you want to create this profile?" }%>
 
 <%end%>
 
-<p><%= link_to "Go back to all users", users_path %></p>
