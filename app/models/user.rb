@@ -6,9 +6,9 @@ class User < ApplicationRecord
     #has_many :commented_on_posts, through: :comments, foreign_key: :user_id, class_name: "User"
     has_secure_password
 
-    validates :username, uniqueness: true
+    validates :username, :email, uniqueness: true
     validates :age, numericality: {greater_than_or_equal_to: 15}
-    validates :name, :username, :email, presence: true
+    validates :name, :username, :email, :age, presence: true
     
 
 end

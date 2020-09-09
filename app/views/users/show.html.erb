@@ -1,25 +1,48 @@
-<h1><%= @user.username %></h1>
+<h1> <%= @user.username %>'s Profile </h1>
 
 <img src="<%= @user.profile_img_url %>" alt="<% @user.profile_img_url%>" class="show-img">
 
 <%= flash[:success] %>
 
+<h4>Username: <%= @user.username %></h4>
 <h4>Name: <%= @user.name %></h4>
 <h4>Email: <%= @user.email %></h4>
 <h4>Age: <%= @user.age %></h4>
 <h4>Favorite Destination: <%= @user.favorite_destination %></h4>
-
-<h4> My Posts </h4>
-<% @user.posts.each do |post_instance| %>
-<li><%= link_to post_instance.title, post_path(post_instance.id) %> from "<%= link_to post_instance.trip.title, post_path(post_instance.trip.id)%>" trip
+<h4>Check out my trips!</h4>
+<ul><% if @user.trips.empty? == false %>
+<% @user.trips.each do |trip_instance| %>
+<li><%= link_to trip_instance.title, trip_path(trip_instance.id)%> - <%= trip_instance.destination.city%>, <%= trip_instance.destination.country%>
+<% end%>
+<% else %>
+</ul>
+<p>It looks like this user hasn't gone on any trips yet. :( </p>
 <% end%>
 
-<h4> My Comments </h4>
+
+<h4> Posts </h4>
+<% if @user.posts.empty? == false %>
+<% @user.posts.each do |post_instance| %>
+<li><%= link_to post_instance.title, post_path(post_instance.id) %> from "<%= link_to post_instance.trip.title, post_path(post_instance.trip.id)%>" trip
+<%end%>
+<%else%>
+<p>It looks like this user hasn't posted yet. :( </p>
+<% end%>
+
+<h4> Comments </h4>
+<% if @user.comments.empty? == false %>
 <ul> 
 <% @user.comments.each do |comment_instance| %>
 <li> From <%= link_to comment_instance.post.title, post_path(comment_instance.post.id) %> post by <%= link_to comment_instance.post.user.username, user_path(comment_instance.post.user.id) %>: "<%= comment_instance.description %>" 
 <% end  %>
 </ul>
+<% else%>
+<p>It looks like this user hasn't commented on a post yet. :( </p>
+<% end%>
+
+<% if @user.trips.empty? == true && @user.posts.empty? == true && @user.comments.empty? == true %>
+<p><b>No trips, comments, or posts? Get off your computer and go on a trip cause you basic AF! </b></p>
+<% end%>
 
 <p><%= link_to "Back to all users", users_path %></p>
 
@@ -29,6 +52,10 @@
 <p><%= button_to "Comment on a Post", new_comment_path, method: :get %></p>
 <p><%# button_to "Invite a friend to join", new_comment_path, method: :get %></p>
 
-
+<p><%# button_to "Delete my profile", @user, method: :delete %> </p>
+<% if @current_user == @user %>
+ <%= button_to "Delete my profile", user_path(@user), method: :delete, data: { confirm: "Are you sure you want to delete your profile?" } %>
+</div>
+<% end%>
 
 
