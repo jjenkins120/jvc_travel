@@ -12,6 +12,7 @@
 </div>
 
 
+<% if @post.user == current_user %>
 <button>  
     <%= link_to "Edit Post", edit_post_path(@post) %>
 </button>
@@ -19,8 +20,7 @@
 <button>  
     <%= link_to "Delete Post!!!", @post, method: :delete, data: { confirm: "Do you want to delete your Post?" } %>
 </button>
-
-
+<% end%>
 
 
 

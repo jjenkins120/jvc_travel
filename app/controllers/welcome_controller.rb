@@ -1,4 +1,6 @@
 class WelcomeController < ApplicationController
+    skip_before_action :authorized, only: [:show, :login]
+    
     def show
     end
 
