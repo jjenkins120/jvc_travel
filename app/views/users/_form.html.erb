@@ -28,7 +28,7 @@
 <%= f.number_field :age%>
 
 <%= f.label :favorite_destination %>
-<%= f.collection_select :favorite_destination, Destination.all, :id, :city%>
+<%= f.collection_select :favorite_destination, Destination.all, :city, :city%>
 
 <%=f.submit%>
 

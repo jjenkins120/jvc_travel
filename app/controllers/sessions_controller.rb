@@ -6,8 +6,8 @@ class SessionsController < ApplicationController
 
     def login 
         user = User.find_by(username: params[:session][:username])
-    
-        if user && User.authenticate(params[:session][:password])
+        #byebug
+        if user && user.authenticate(params[:session][:password])
           session[:user_id] = user.id
           redirect_to user_path(user)
         else 
