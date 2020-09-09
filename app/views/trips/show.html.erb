@@ -1,2 +1,17 @@
 <h1>Trips#show</h1>
-<p>Find me in app/views/trips/show.html.erb</p>
+
+<h1><%=@trip.user.name%> heres your trip info!</h1>
+
+<h1><%=@trip.destination.city%></h1>
+<h1><%=@trip.destination.country%></h1>
+
+<button>  
+    <%= link_to "Edit Trip", edit_trip_path(@trip) %>
+</button>
+
+<button>  
+    <%= link_to "Delete Trip!!!", @trip, method: :delete, data: { confirm: "Do you want to delete trip?" } %>
+</button>
+
+
+
