@@ -9,17 +9,19 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  
+   <% if logged_in? %>
+        <%= link_to "My Profile", user_path(current_user)%>
+        <%= link_to "Logout", logout_path, method: :delete, data: { confirm: "Are you sure you want to logout?" } %>
+      <% end%>
+  
   </head>
-
   <body>
     <%= yield %>
   </body>
 </html>
 
 
-      <% if logged_in? %>
-        <%= link_to "Logout", logout_path, method: :delete, data: { confirm: "Are you sure you want to logout?" } %>
-        <%= link_to "My profile", user_path(current_user)%>
-        <% end%>
+     
 
   
