@@ -7,8 +7,8 @@ class Destination < ApplicationRecord
     end
 
     def self.popular_destinations
-         top_five = self.all.max_by do |destination_instance|
-            destination_instance.full_name
+         top_five = self.all.max_by(5) do |destination_instance|
+            destination_instance.trips.count
         end
         top_five
     end
