@@ -73,14 +73,14 @@ Comment.create(
 )
 end
 
-puts "seeding tags"
+# puts "seeding tags"
 
-50.times do
-Tag.create(
-    name:Faker::App.name, 
-    post_id: Post.all.sample.id, 
-)
-end
+# 50.times do
+# Tag.create(
+#     name:Faker::App.name, 
+#     post_id: Post.all.sample.id, 
+# )
+# end
 
 puts "DONE!"
 

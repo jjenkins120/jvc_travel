@@ -13,18 +13,18 @@ class PostsController < ApplicationController
     @post = Post.new()
     @current_user = User.third
     @tag = Tag.new()
-    byebug
+    # byebug
   end
 
   def create
-    byebug
+    # byebug
     @current_user = User.third
     @post = Post.create(post_params(:title, :description, :destination, :trip_id))
-    byebug
+    # byebug
     if @post.save
       flash[:post] = "Your post has been added!!!"
       @current_user.posts << @post
-      byebug
+      # byebug
       redirect_to user_path(@post.user_id)
     else 
       flash[:errors] = @post.errors.full_messages
@@ -55,14 +55,14 @@ class PostsController < ApplicationController
     user_id = @post.user.id
     @post.destroy
     flash[:destroy] = "The post has been deleted!!!"
-    byebug
+    # byebug
     redirect_to posts_path
   end
 
   private
 
   def find_post
-    byebug
+    # byebug
     @post = Post.find(params[:id])
   end
     
