@@ -6,6 +6,7 @@ class DestinationsController < ApplicationController
   end
 
   def show
+    puts "test"
   end
 
   def new
