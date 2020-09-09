@@ -9,9 +9,9 @@ Rails.application.routes.draw do
   resources :users
   resources :posts
 
-  delete 'sessions/logout', to: 'sessions#logout', as: 'logout'
-  post 'sessions/login', to: 'sessions#login', as: 'login'
-  get 'sessions/new', to: 'sessions#new', as: 'new_login'
+  delete '/logout', to: 'welcome#logout', as: 'logout'
+  post '/login', to: 'welcome#login', as: 'login'
+ 
 
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

@@ -1,7 +1,6 @@
 <h1>Trips#new</h1>
 
 
-<%#BE SURE TO REMOVE USER ID COLLECTION SELECT FROM THE FORM FIELD%>
 
 
 <%if flash[:errors]%>
@@ -12,24 +11,22 @@
 
 
 <%= form_for @trip do |f| %>
-	<ul>
-		<% if @trip.errors.any? %>
-			<%= @trip.errors.full_messages.each do |msg| %>
-				<li><%= msg %></li>
-			<% end %>
-		<% end %>
-	</ul>
+
 
 <p>Trip Details</p>
 	<%= f.label :duration %>
 	<%= f.text_field :duration%><br><br>
     <%= f.label :cost %>
 	<%= f.text_field :cost%><br><br>
-    <%= f.label :destination %>
-    <%= f.collection_select :destination, @destinations, :id, :country %><br>
-    <%= f.collection_select :destination, @destinations, :id, :city %><br><br>
-    <%= f.hidden_field :user_id %>
+    <%= f.label :destination %><br><br>
+
+    <%=f.fields_for :destination, @destination do |d|%>
+        <%= d.label :city %>
+        <%= d.text_field :city%><br><br>
+        <%= d.label :country %>
+        <%= d.text_field :country%><br><br>
+    <% end %>
 	<%= f.submit %>
+
 <% end %>
 
- 
