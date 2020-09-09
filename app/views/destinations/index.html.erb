@@ -6,4 +6,9 @@
 <li><%= link_to destination.full_name, destination_path(destination)%></li>
 </ul>
 <%end%>
+ 
 
+<h3> Top Five Destinations </h3>
+<% @top_five.each do |destination|%>
+<%= link_to destination.full_name, destination_path%>
+<%end%>

@@ -5,4 +5,11 @@ class Destination < ApplicationRecord
     def full_name
         city + ", " + country
     end
+
+    def self.popular_destinations
+         top_five = self.all.max_by do |destination_instance|
+            destination_instance.full_name
+        end
+        top_five
+    end
 end

@@ -3,26 +3,28 @@ class DestinationsController < ApplicationController
 
   def index
     @destinations = Destination.all 
+    @top_five = Destination.popular_destinations
+  
   end
 
   def show
     @destination = Destination.find(params[:id])
   end
 
-  def new
-  end
+  # def new
+  # end
 
-  def create
-  end
+  # def create
+  # end
 
-  def edit
-  end
+  # def edit
+  # end
 
-  def update
-  end
+  # def update
+  # end
 
-  def destroy
-  end
+  # def destroy
+  # end
 
   private
 
