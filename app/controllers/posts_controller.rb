@@ -12,8 +12,7 @@ class PostsController < ApplicationController
   def new
     @post = Post.new()
     @current_user = User.third
-    @trip_names = @post.current_user_trips_cities(@current_user)
-    @tag = Tag.new
+    @tag = Tag.new()
     byebug
   end
 
@@ -49,10 +48,8 @@ class PostsController < ApplicationController
         redirect_to edit_post_path(@post)
     end
   end
-
-
-  #foreign key constraint error again when destroying!!!!
    
+  
   def destroy
     @post =  Post.find(params[:id])
     user_id = @post.user.id

@@ -1,13 +1,10 @@
-<h1>All Users</h1>
+<h1>All Travelers</h1>
 
 <% @users.each do |user_instance|%>
+    <% if user_instance != current_user %>
 <li><%= link_to user_instance.username, user_path(user_instance.id) %>
+<% end%>
 <% end %>
-
-
-
-<p><%= button_to "Create a new profile", new_user_path, method: :get %></p>
-
 
 
 <p><%= link_to "See all of the trips", trips_path %></p>

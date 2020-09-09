@@ -1,2 +1,14 @@
-<h1>Destinations#show</h1>
-<p>Find me in app/views/destinations/show.html.erb</p>
+<h1>Destination</h1>
+
+<p>City: <%= @destination.city%></p>
+<br>
+<p>Country: <%= @destination.country%></p>
+<br>
+<p>Population: <%= @destination.population%></p>
+<br>
+<p>Known for: <%= @destination.known_for%></p>
+
+<%= link_to "Destinations", destinations_path%>
+<br>
+
+

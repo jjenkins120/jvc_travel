@@ -30,5 +30,13 @@ class Trip < ApplicationRecord
   end
 
 
+
+  def display_destination_and_date
+
+    "#{self.destination.city} - #{self.created_at.to_s.split(" ")[0]}"
+
+  end
+
+
   
 end

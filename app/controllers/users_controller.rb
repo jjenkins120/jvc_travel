@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:id])
   end
 
   def new
@@ -17,7 +18,7 @@ class UsersController < ApplicationController
     @user = User.create(user_params)
     if @user.valid?
       session[:user_id] = @user.id
-      flash[:success] = "WELCOME TRAVELLER!"
+      flash[:success] = "WELCOME NEW TRAVELER!"
       redirect_to user_path(@user)
     else 
       flash[:my_errors] = @user.errors.full_messages
@@ -39,7 +40,7 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
-    redirect_to users_path
+    redirect_to "/"
   end
 
   private
