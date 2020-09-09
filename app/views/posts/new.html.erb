@@ -17,11 +17,12 @@
     <%= f.text_area :description%><br><br>
     <%= f.label :trip %><br>
     <%= f.collection_select :trip_id, @current_user.trips, :id, :display_destination_and_date %><br><br>
-    <%= f.label :tags %><br>
-    <%=f.fields_for :tags, @tag do |t|%>
-        <%= t.label :name %>
-        <%= t.text_field :name%><br><br>
-    <% end %>
+    <%= f.label :choose_your_trip_tags %><br>
+    <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name %><br><br>
+    <%= f.fields_for :tags, @post.tags.build do |tags_fields| %>
+        <%= tags_fields.label :add_a_custom_tag_to_your_post %>
+        <%= tags_fields.text_field :name %>
+     <% end %>
 	<%= f.submit %>
 
 <% end %>
