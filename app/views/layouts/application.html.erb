@@ -17,9 +17,7 @@
 </html>
 
 
-      <% if !logged_in? %>
-      <p>Don't have a profile? Sign up <%= link_to "here", new_user_path %>.</p>
-        <% else  %>
+      <% if logged_in? %>
         <%= link_to "Logout", logout_path, method: :delete, data: { confirm: "Are you sure you want to logout?" } %>
         <%= link_to "My profile", user_path(current_user)%>
         <% end%>

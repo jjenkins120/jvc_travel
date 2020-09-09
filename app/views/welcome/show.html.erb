@@ -4,7 +4,7 @@
 <%= flash[:error] %>
 <% end%>
 
-
+<% if !logged_in? %>
 <%= form_for :session, url: login_path do |f| %>
 <br><%= f.label :username %>
 <br><%= f.text_field :username %>
@@ -13,4 +13,9 @@
 <br><%= f.password_field :password %>
 
 <br><%= f.submit "Sign In"%>
+<% end%>
+<% end%>
+
+<% if !logged_in? %>
+      <p>Don't have a profile? Sign up <%= link_to "here", new_user_path %>.</p>
 <% end%>

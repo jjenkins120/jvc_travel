@@ -49,7 +49,7 @@ class TripsController < ApplicationController
   end
     
   def trip_params(*args)
-    params.require(:company).permit(*args)
+    params.require(:trip).permit(*args)
   end
  
 end
