@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 2020_09_09_144349) do
     t.integer "destination_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "title"
     t.index ["destination_id"], name: "index_trips_on_destination_id"
     t.index ["user_id"], name: "index_trips_on_user_id"
   end
@@ -73,6 +74,9 @@ ActiveRecord::Schema.define(version: 2020_09_09_144349) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "password_digest"
+    t.string "username"
+    t.string "email"
+    t.string "profile_img_url"
   end
 
   add_foreign_key "comments", "posts"

@@ -19,8 +19,11 @@ puts "seeding users"
 
 50.times do
 User.create(
-    name: Faker::Name.name,  
-    age: rand(18..95), 
+    name: Faker::Name.name,
+    username: Faker::Internet.unique.username , 
+    email: Faker::Internet.email, 
+    age: rand(18..95),
+    profile_img_url: "https://images.app.goo.gl/swXiNaheB16gSvHP8", 
     favorite_destination: Faker::Address.city, 
     password: "password"
 )
@@ -43,6 +46,7 @@ puts "seeding trips"
 Trip.create(
     duration: rand(1..30), 
     cost: rand(500..50000), 
+    title: Faker::Book.title, 
     user_id: User.all.sample.id, 
     destination_id: Destination.all.sample.id, 
 )
