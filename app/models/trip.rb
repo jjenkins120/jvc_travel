@@ -19,13 +19,13 @@ class Trip < ApplicationRecord
      destination = destination_city
     end
 
-    byebug
+    # byebug
 
     self.destination_id = destination.id
 
     #self.destination << destination RETURNS ERROR "no method << for nil"
     # self.destination is nil when checking in byebug
-    byebug
+    # byebug
 
   end
 
