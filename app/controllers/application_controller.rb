@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-    # before_action :authorized
+    before_action :authorized
     helper_method :authorized, :current_user, :logged_in?
 
     def logged_in_user

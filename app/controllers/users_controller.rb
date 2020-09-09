@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :find_user, only: [:show, :edit, :update, :destroy]
-  #skip_before_action :authorized, only: [:new, :create]
+  skip_before_action :authorized, only: [:new, :create]
 
   def index
     @users = User.all 
@@ -40,6 +40,7 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
+    session.delete(:user_id)
     redirect_to "/"
   end
 
