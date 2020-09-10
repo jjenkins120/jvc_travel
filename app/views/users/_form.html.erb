@@ -4,35 +4,46 @@
 <% end%>
 <% end%>
 
+<div class="container new-post" style="width: 40rem;">
+    <%= form_for @user do |f| %>
+    
+    <div class="form-group">
+    <%= f.label :username, 'Username'  %>
+    <%= f.text_field :username, class: 'form-control'%>
+    </div>
+    <div class="form-group">
+    <%= f.label :password, 'Password'  %>
+    <%= f.password_field :password, class: 'form-control'%> 
+    </div>
+    <div class="form-group">
+    <%= f.label :password_confirmation, 'Password Confirmation'  %>
+    <%= f.password_field :password_confirmation, class: 'form-control'%> 
+    </div>
+    <div class="form-group">
+    <%= f.label :profile_img_url, 'Profile Image URL'  %>
+    <%= f.text_field :profile_img_url, class: 'form-control'%> 
+    </div>
+    <div class="form-group">
+    <%= f.label :name, 'Full Name'  %>
+    <%= f.text_field :name, class: 'form-control'%> 
+    </div>
+    <div class="form-group">
+    <%= f.label :email, 'Email'  %>
+    <%= f.text_field :email, class: 'form-control'%> 
+    </div>
+    <div class="form-group">
+    <%= f.label :age, 'Age'  %>
+    <%= f.text_field :age, class: 'form-control'%> 
+    </div>
+    <div>
+    <%= f.label :favorite_destination, 'Favorite Destination' %>
+    <%= f.collection_select :favorite_destination, Destination.all, :city, :city, {:class  => 'form-control'}%>
+    </div>
+    <br>
+    <div>
+    <%=f.submit "Submit", class: "btn btn-primary create-btn", data: { confirm: "Are you sure you want to submit?" }%>
+    </div>
+    <%end%>
+    <br>
 
-<%= form_for @user do |f| %>
 
-<%= f.label :username  %>
-<br><%= f.text_field :username %>
-
-<br><%= f.label :password %>
-<br><%= f.password_field :password %>
-
-<br><%= f.label :password_confirmation %>
-<br><%= f.password_field :password_confirmation %>
-
-<br><%= f.label :profile_img_url %>
-<br><%= f.text_field :profile_img_url %>
-
-<br><%= f.label :name  %>
-<br><%= f.text_field :name%>
-
-<br><%= f.label :email %>
-<br><%= f.text_field :email%>
-
-<br><%= f.label :age %>
-<br><%= f.number_field :age%>
-
-<br><%= f.label :favorite_destination %>
-<br><%= f.collection_select :favorite_destination, Destination.all, :city, :city%>
-
-<br><%=f.submit "Create Profile", data: { confirm: "Are you sure you want to create this profile?" }%>
-
-<%end%>
-
-<p> Already have an account? Go back to <%= link_to "sign-in", "/"%>.</p>

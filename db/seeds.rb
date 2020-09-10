@@ -5,6 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'rest-client'
+require 'json'
+require 'byebug'
+
+# response = RestClient.get 'https://randomuser.me/api/'
+# random_hash = JSON.parse(response.body)
+# byebug
 
 puts "destroying existing seeds"
 
@@ -18,12 +25,14 @@ Destination.destroy_all
 puts "seeding users"
 
 50.times do
+response = RestClient.get 'https://randomuser.me/api/'
+random_hash = JSON.parse(response.body)
 User.create(
     name: Faker::Name.name,
     username: Faker::Internet.unique.username , 
     email: Faker::Internet.email, 
     age: rand(18..95),
-    profile_img_url: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png", 
+    profile_img_url: random_hash["results"][0]["picture"]["large"], 
     favorite_destination: Faker::Address.city, 
     password: "password"
 )

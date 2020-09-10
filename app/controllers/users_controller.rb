@@ -31,7 +31,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update
+    if @user.update(user_params)
       redirect_to user_path(@user)
     else 
       flash[:my_errors] = @user.errors.full_messages

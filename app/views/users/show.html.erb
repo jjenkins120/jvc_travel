@@ -1,9 +1,10 @@
 <h1 class="card text-center mx-auto mt-5"> <%= @user.name %> </h1>
-<div>
+<div class=text-center>
 <%= image_tag @user.profile_img_url %> 
 </div>
+<div class=text-center>
 <%= flash[:success] %>
-
+</div>
 <div class="card text-center mx-auto mt-5">
 <h4>Username: <%= @user.username %></h4>
 <h4>Email: <%= @user.email %></h4>
@@ -56,7 +57,8 @@
 <br>
 <div class=text-center>
 <% if logged_in? && current_user == @user%>
- <%= button_to "Delete my profile", user_path(@user), method: :delete, data: { confirm: "Are you sure you want to delete your profile?" } %>
+<%= button_to "Edit my profile", edit_user_path(@user), method: :get, data: { confirm: "Are you sure you want to update your profile?" } %><br>
+<%= button_to "Delete my profile", user_path(@user), method: :delete, data: { confirm: "Are you sure you want to delete your profile?" } %>
 </div>
 <% end%>
 
