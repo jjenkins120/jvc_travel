@@ -1,4 +1,4 @@
-<h1>Trips</h1>
+<h1 class="card text-center mx-auto mt-5">Trips</h1>
 
 
 <%if flash[:destroy]%>
@@ -14,9 +14,9 @@
                 <%= trip.created_at.to_s.split(" ")[0]%>
             </div>
             <div class="card-body" >
-                <h5 class="card-title">Trip <%= trip.id %></h5>
-                <p class="card-text">User: <%=trip.user.name%></p>
-                <p class="card-text">City: <%=link_to(trip.destination.city, trip_path(trip))%></p>
+                <h5 class="card-title"><%= link_to trip.title, trip_path(trip) %></h5>
+                <p class="card-text">Traveler: <%=link_to trip.user.name, user_path(trip.user.id)%></p>
+                <p class="card-text">City: <%=trip.destination.city%></p>
                 <p class="card-text">Country: <%=trip.destination.country%></p>
             </div>
             <div class="card-footer text-muted">

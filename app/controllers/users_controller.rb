@@ -3,7 +3,8 @@ class UsersController < ApplicationController
   skip_before_action :authorized, only: [:new, :create]
 
   def index
-    @users = User.all 
+    # @users = User.search(params[:search])
+    @users = User.all
   end
 
   def show

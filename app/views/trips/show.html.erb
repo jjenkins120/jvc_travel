@@ -1,14 +1,14 @@
 
-<h1><%=@trip.user.name%> Here are your trips!</h1>
+<h1 class="card text-center mx-auto mt-5"> Trip: <%= @trip.title %></h1>
 
 
 <div class="container">
-    <div class="card text-center" style="width: 18rem;">
+    <div class="card text-center mx-auto mt-5" style="width: 18rem;">
         <div class="card-header">
             <%= @trip.created_at.to_s.split(" ")[0]%>
         </div>
         <div class="card-body" >
-            <h5 class="card-title">Trip <%= @trip.id %></h5>
+            <h5 class="card-title">Traveler: <%=link_to @trip.user.name, user_path(@trip.user.id)%></h5>
             <p class="card-text">City: <%=@trip.destination.city%></p>
             <p class="card-text">Country: <%=@trip.destination.country%></p>
             <% if @trip.user == current_user %>
