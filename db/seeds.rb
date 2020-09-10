@@ -23,7 +23,7 @@ User.create(
     username: Faker::Internet.unique.username , 
     email: Faker::Internet.email, 
     age: rand(18..95),
-    profile_img_url: "https://images.app.goo.gl/swXiNaheB16gSvHP8", 
+    profile_img_url: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png", 
     favorite_destination: Faker::Address.city, 
     password: "password"
 )

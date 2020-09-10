@@ -1,25 +1,29 @@
-<h1>Travelers</h1>
+<h1 class="card text-center mx-auto mt-5" >Travelers</h1>
 
-<% @users.each do |user_instance|%>
+<!--<h4>Search by Username:</h4> 
+<%# form_tag(users_path) do %>
+    <%# text_field_tag(:search, params[:search]) %>
+    <%# submit_tag ("Search") %>
+    <%# <%end%> %>
+-->
+<div class="container">
+    <% @users.each do |user_instance|%>
     <% if user_instance != current_user %>
-<li><%= link_to user_instance.username, user_path(user_instance.id) %>
-<% end%>
-<% end %>
-
-
-<% @users.each do |user_instance|%>
-    <% if user_instance != current_user %>
-<div class="row row-cols-1 row-cols-md-3">
-    <div class="card">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title" ><%= link_to user_instance.name, user_path(user_instance.id) %></h5>
-      </div>
-    </div>
-  </div>
-<% end%>
-<% end%>
-
-
+    <div class = "individual-trip">
+        <div class="card text-center mx-auto mt-5" style="width: 18rem;">
+            <div class="card-header">
+                <%= image_tag user_instance.profile_img_url%>
+            </div>
+            <div class="card-body" >
+                <h5 class="card-title">Traveler: <%= link_to user_instance.name, user_path(user_instance.id) %></h5>
+                <p class="card-text">Username: <%=user_instance.username%></p>
+            </div>
+            <div class="card-footer text-muted">
+            </div>
+        </div>
+    <div>
+    <%end%>
+    <%end%>
+</div>
 
 

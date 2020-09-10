@@ -8,12 +8,12 @@ class Post < ApplicationRecord
 
 
   def tags_attributes=(tags_attributes)
-    byebug
+    # byebug
     tags_attributes.values.each do |tag_attribute|
       tag = Tag.find_or_create_by(tag_attribute)
       self.tags << tag
     end
-    byebug
+    # byebug
   end
 
 end

@@ -1,0 +1,21 @@
+<% if flash[:my_errors] %>
+<% flash[:my_errors].each do |error|%>
+<p><%= error %></p>
+<% end%>
+<% end%>
+
+  <div class="container new-post" style="width: 40rem;">
+        <%= form_for @comment do |f| %>
+        <h2 class=text-center>Create a New Comment!</h2>
+        <%= f.label :description %>
+        <div class = "form-group">
+            <%= f.text_area :description, class: 'form-control', placeholder: 'Tell us about your trip!'%>
+        </div>
+        <%= f.label :post %>
+        <div class="form-group">
+            <%= f.collection_select :post_id, Post.all, :title, :title, {:class  => 'form-control'} %>
+        </div>
+     
+        <%= f.submit 'Submit', class: "btn btn-primary create-btn" %>
+        <% end %>
+    </div>

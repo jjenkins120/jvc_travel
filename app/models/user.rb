@@ -11,4 +11,11 @@ class User < ApplicationRecord
     validates :name, :username, :email, :age, presence: true
     
 
+    # def self.search(search)
+    #     if search 
+    #         User.find_by(params[:search])
+    #     else
+    #         User.all
+    #     end
+    # end
 end
