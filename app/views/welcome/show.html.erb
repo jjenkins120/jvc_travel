@@ -1,5 +1,5 @@
 <div class="view" style="background-image: url('https://jingtravel.com/wp-content/uploads/2019/03/bellas-artes-compressor-1240x698.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
- <h1>Welcome to the JVC Travel Blog!</h1>
+ <h1 style="color:white"> Welcome to the JVC Travel Blog!</h1>
 
 
 
@@ -33,21 +33,18 @@
                           <hr class="hr-light">
                         </div>
                         <!--Body-->
-                        <div class="md-form">
-                        <% if flash[:error]%>
-                              <%= flash[:error] %>
-                                    <% end%>
-                          <i class="fas fa-user prefix white-text active"></i>
+                                     <div class="md-form">
+                                      <% if flash[:error]%>
+                                     <%= flash[:error] %>
+                                     <% end%>
+                                     <i class="fas fa-user prefix white-text active"></i>
                           
-                          
-                          <% if !logged_in? %>
-                              <%= form_for :session, url: login_path do |f| %>
-                              <label for= :username class="active">Username</label>
+                                     <% if !logged_in? %>
+                                     <%= form_for :session, url: login_path do |f| %>
+                                     <label for= :username class="active">Username</label>
                                     
-                                     <%= f.text_field :username %>
-
-                          
-                        </div>
+                                     <%= f.text_field :username %>             
+                                     </div>
                         
                         <div class="md-form">
                           <i class="fas fa-lock prefix white-text active"></i>

@@ -13,3 +13,9 @@
  *= require_tree .
  *= require_self
  */
+ .med-img {
+     height: 400px;
+     width: 400px;
+     margin: 20px auto 0 auto;
+
+ }
