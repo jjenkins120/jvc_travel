@@ -5,6 +5,7 @@
 
 <div>
     <%@posts.each do |post| %>
+    <div class= 'individual-posts'>
         <p>User <strong><%=post.user.name%></strong></p>
         <p>Title <strong><%=link_to(post.title, post_path(post))%></strong></p>
         <p>Description <strong><%=post.description%></strong></p>
@@ -12,7 +13,7 @@
         <p>ID <strong><%=post.id%></strong></p>
         <p>City <strong><%=post.trip.destination.city%></strong></p>
         <p>Country <strong><%=post.trip.destination.country%></strong></p><br><br>
-
+    <div>
     <%end%>
 </div>
 

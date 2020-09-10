@@ -1,15 +1,28 @@
-<h1>Trips#index</h1>
+<h1>Trips</h1>
 
 
 <%if flash[:destroy]%>
     <p style="color: green"><%= flash[:destroy]%></p>
 <%end%>
 
-<div>
+
+<div class="container">
     <%@trips.each do |trip| %>
-        <p>City: <strong><%=link_to(trip.destination.city, trip_path(trip))%></strong></p>
-         <p>ID <strong><%=trip.id%></strong></p>
-        <p>User <strong><%=trip.user.name%></strong></p><br><br>
+    <div class = "individual-trip">
+        <div class="card text-center mx-auto mt-5" style="width: 18rem;">
+            <div class="card-header">
+                <%= trip.created_at.to_s.split(" ")[0]%>
+            </div>
+            <div class="card-body" >
+                <h5 class="card-title">Trip <%= trip.id %></h5>
+                <p class="card-text">User: <%=trip.user.name%></p>
+                <p class="card-text">City: <%=link_to(trip.destination.city, trip_path(trip))%></p>
+                <p class="card-text">Country: <%=trip.destination.country%></p>
+            </div>
+            <div class="card-footer text-muted">
+                <p>Duration - <%= trip.duration%></p>
+            </div>
+        </div>
+    <div>
     <%end%>
 </div>
-

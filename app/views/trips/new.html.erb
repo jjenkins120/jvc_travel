@@ -1,7 +1,3 @@
-<h1>Trips#new</h1>
-
-
-
 
 <%if flash[:errors]%>
     <%flash[:errors].each do |error|%>
@@ -10,23 +6,28 @@
 <%end%>
 
 
-<%= form_for @trip do |f| %>
 
-
-<p>Trip Details</p>
-	<%= f.label :duration %>
-	<%= f.text_field :duration%><br><br>
-    <%= f.label :cost %>
-	<%= f.text_field :cost%><br><br>
-    <%= f.label :destination %><br><br>
-
-    <%=f.fields_for :destination, @destination do |d|%>
-        <%= d.label :city %>
-        <%= d.text_field :city%><br><br>
-        <%= d.label :country %>
-        <%= d.text_field :country%><br><br>
+   <div class="container new-trip">
+        <%= form_for @trip do |f| %>
+        <h3>Create a new Trip!</h3>
+        <div class="form-group">
+            <%= f.label :duration %>
+	        <%= f.text_field :duration%>
+        </div>
+        <div class = "form-group">
+            <%= f.label :cost %>
+	        <%= f.text_field :cost%>
+        </div>
+        <%=f.fields_for :destination, @destination do |d|%>
+            <div class="form-group">
+                <%= d.label :city %>
+                <%= d.text_field :city%>
+            </div>
+            <div class="form-group">
+                <%= d.label :country %>
+                <%= d.text_field :country%>
+            </div>
+        <% end %>
+        <%= f.submit 'Submit', class: "btn btn-primary create-btn" %>
     <% end %>
-	<%= f.submit %>
-
-<% end %>
-
+    </div>
