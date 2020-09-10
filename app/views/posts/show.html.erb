@@ -10,7 +10,7 @@
     <p>City <strong><%=@post.trip.destination.city%></strong></p>
     <p>Country <strong><%=@post.trip.destination.country%></strong></p>
     <p>Comments: <strong><%@post.comments.each do |comment|%></strong><br>
-        <strong><%="#{comment.description} - #{comment.post.trip.user.name}"%></strong><br>
+        <strong><%="#{comment.description} - #{comment.user.name}"%></strong><br>
         <% if comment.post.trip.user == current_user  %>
              <button>  
                 <%= link_to "Edit this Comment", edit_comment_path(comment) %>
@@ -23,14 +23,15 @@
         <% end%>  
 </div>
 
-
-<!--
-   <% form_for @comment do |f| %>
+   <%= form_for @comment do |f| %>
    <%= f.label :description%>
    <%= f.text_field :description %>
+   <%= f.label :post_id%>
+   <%= f.collection_select :post_id, Post.all, :title, :title %>
+   <%= f.label :user_id%>
+   <%= f.collection_select :user_id, User.all, :name, :name%>
    <%= f.submit %>
    <% end%>
--->
 
 <% if @post.user == current_user %>
     <button>  
