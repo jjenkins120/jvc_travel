@@ -4,7 +4,6 @@
 
 <%= flash[:success] %>
 
-<h4>Username: <%= @user.username %></h4>
 <h4>Name: <%= @user.name %></h4>
 <h4>Email: <%= @user.email %></h4>
 <h4>Age: <%= @user.age %></h4>
@@ -43,14 +42,6 @@
 <% if @user.trips.empty? == true && @user.posts.empty? == true && @user.comments.empty? == true %>
 <p><b>No trips, comments, or posts? Get off your computer and go on a trip cause you basic AF! </b></p>
 <% end%>
-
-<p><%= button_to "See other user's profiles", users_path, method: :get %></p>
-
-<p><%# button_to "Create a new destination", new_destination_path, method: :get %></p>
-<p><%= button_to "Create a new trip", new_trip_path, method: :get %></p>
-<p><%= button_to "Create a new post", new_post_path, method: :get %></p>
-<p><%= button_to "Find a Post", posts_path, method: :get %></p>
-<p><%# button_to "Invite a friend to join", new_comment_path, method: :get %></p>
 
 <p><%# button_to "Delete my profile", @user, method: :delete %> </p>
 <% if logged_in? && current_user == @user%>
