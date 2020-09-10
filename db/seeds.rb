@@ -42,7 +42,7 @@ end
 
 puts "seeding trips"
 
-50.times do
+15.times do
 Trip.create(
     duration: rand(1..30), 
     cost: rand(500..50000), 

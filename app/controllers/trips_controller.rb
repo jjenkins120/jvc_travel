@@ -15,14 +15,11 @@ class TripsController < ApplicationController
   end
 
   def create
-    #byebug
-    @current_user = User.last
+    @current_user = current_user
     @trip = Trip.create(trip_params(:duration, :cost, :user_id, destination_attributes: [:city, :country]))
-    #byebug
     if @trip.save
       flash[:trip] = "Your trip has been added!!!"
       @current_user.trips << @trip
-      #byebug
       redirect_to user_path(@trip.user_id)
     else 
       flash[:errors] = @trip.errors.full_messages
@@ -52,19 +49,17 @@ class TripsController < ApplicationController
     user_id = @trip.user.id
     @trip.destroy
     flash[:destroy] = "The trip has been deleted!!!"
-    #byebug
     redirect_to trips_path
   end
 
   private
 
   def find_trip
-    #byebug
     @trip = Trip.find(params[:id])
   end
     
   def trip_params(*args)
-    params[:trip][:user_id] = User.last.id
+    params[:trip][:user_id] = current_user.id
     params.require(:trip).permit(*args)
   end
  
