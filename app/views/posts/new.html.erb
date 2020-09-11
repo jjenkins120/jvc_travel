@@ -21,6 +21,10 @@
         <div class="form-group">
             <%= f.collection_select :trip_id, @current_user.trips, :id, :display_destination_and_date, {:class  => 'form-control'} %>
         </div>
+        <%= f.label :image_url %>
+        <div class="form-group">
+            <%= f.text_field :image, class: 'form-control'%>
+        </div>
         <%= f.label :choose_your_trip_tags %><br>
         <div class="form-check">
             <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name %>

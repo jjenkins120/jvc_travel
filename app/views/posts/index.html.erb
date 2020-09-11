@@ -1,19 +1,24 @@
-<h1 class="card text-center mx-auto mt-5">Posts</h1>
-<%if flash[:destroy]%>
-    <p style="color: green"><%= flash[:destroy]%></p>
-<%end%>
 
-<div>
-    <%@posts.each do |post| %>
-    <div class= 'individual-posts'>
-        <p>User <strong><%=post.user.name%></strong></p>
-        <p>Title <strong><%=link_to(post.title, post_path(post))%></strong></p>
-        <p>Description <strong><%=post.description%></strong></p>
-        <p>Likes <strong><%=post.likes%></strong></p>
-        <p>ID <strong><%=post.id%></strong></p>
-        <p>City <strong><%=post.trip.destination.city%></strong></p>
-        <p>Country <strong><%=post.trip.destination.country%></strong></p><br><br>
-    <div>
+    <%if flash[:destroy]%>
+        <p style="color: green"><%= flash[:destroy]%></p>
     <%end%>
-</div>
+
+
+
+            <% @posts.each do |post| %>
+                <div class="card mx-auto mt-4" style="width: 30rem;">
+                    <div class="card mt-0" style="width: 30rem;">
+                        <div class="card-body" style="height: 4.7 rem;">
+                        <div class= "row justify-content-left mt-0 mb-3">
+                            <%= image_tag post.user.profile_img_url, class: "user-image mr-4"%>
+                            <strong><p class="card-text ml-2 mt-6"><%=link_to post.user.username, user_path(post.user)%></p></strong>
+                        </div>
+                        </div>
+                        <%= image_tag post.image, class: "post-img"%>
+                        <div class="card-body text-center">
+                            <p class="card-text"> <%=post.description%> </p>
+                         </div>
+                      </div>
+                  </div>
+            <% end %>
 

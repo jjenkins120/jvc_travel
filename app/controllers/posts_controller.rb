@@ -20,14 +20,14 @@ class PostsController < ApplicationController
   def create
     # byebug
     @current_user = current_user
-    @post = Post.create(post_params(:title, :description, :destination, :trip_id, tag_ids:[], tags_attributes: [:name]))
+    @post = Post.create(post_params(:title, :description, :destination, :image, :trip_id, tag_ids:[], tags_attributes: [:name]))
     byebug
     if @post.save
       flash[:post] = "Your post has been added!!!"
       # @current_user.posts << @post
       #ActiveRecord::HasManyThroughCantAssociateThroughHasOneOrManyReflection (Cannot modify association 'User#posts' because the source reflection class 'Post' is associated to 'Trip' via :has_many.):
       #why dont i need that line? It already associates post with trip and user but how? Is it through the trip model?
-      byebug
+      byebug 
       redirect_to user_path(@current_user)
     else 
       flash[:errors] = @post.errors.full_messages
