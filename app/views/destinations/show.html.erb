@@ -1,5 +1,9 @@
 <h1>Destination</h1>
 
+<%= image_tag @destination.img_url%> 
+
+<br>
+<body>
 <p>City: <%= @destination.city%></p>
 <br>
 <p>Country: <%= @destination.country%></p>
@@ -11,7 +15,7 @@
 <div class="alert alert-primary" role="alert">
   A simple primary alert—check it out!
 </div>
-
+</body>
 <%= link_to "Destinations", destinations_path%>
 <br>
 

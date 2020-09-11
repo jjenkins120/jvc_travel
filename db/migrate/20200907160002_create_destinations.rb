@@ -5,7 +5,7 @@ class CreateDestinations < ActiveRecord::Migration[6.0]
       t.string :country
       t.integer :population
       t.text :known_for
-    
+      t.string :img_url
 
       t.timestamps
     end
