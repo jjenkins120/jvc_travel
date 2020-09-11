@@ -1,9 +1,9 @@
 
 <html>
 <head>
-<h1 class="card text-center mx-auto mt-3"> <%= @user.name %> </h1>
-<div class= text-center>
-<%= image_tag @user.profile_img_url %> 
+<div class= "row justify-content-center ">
+    <%= image_tag @user.profile_img_url, class: "post-img mr-4" %> 
+    <h1 class="card"> <%= @user.name %> </h1>
 </div>
 </head>
 <div class= text-center>

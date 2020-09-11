@@ -12,9 +12,12 @@
                     <strong><p class="card-text ml-2 mt-6"><%=link_to post.user.username, user_path(post.user)%></p></strong>
                 </div>
             </div>
-            <%= image_tag post.image, class: "post-img"%>
+            <%= link_to image_tag(post.image, class: "post-img"), post_path(post)%>
             <div class="card-body text-center">
                 <p class="card-text"> <%=post.description%> </p>
+                <%post.tags.each do |tag|%>
+                    <p class="card-text"> #<%=tag.name%></p>
+                <%end%>
             </div>
         </div>
     </div>

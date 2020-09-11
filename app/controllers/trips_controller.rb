@@ -20,7 +20,7 @@ class TripsController < ApplicationController
     if @trip.save
       flash[:trip] = "Your trip has been added!!!"
       @current_user.trips << @trip
-      redirect_to user_path(@trip.user_id)
+      redirect_to trip_path(@trip)
     else 
       flash[:errors] = @trip.errors.full_messages
       redirect_to new_trip_path(@current_user)
