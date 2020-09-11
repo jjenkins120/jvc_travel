@@ -9,6 +9,10 @@ class User < ApplicationRecord
     validates :username, :email, uniqueness: true
     validates :age, numericality: {greater_than_or_equal_to: 15}
     validates :name, :username, :email, :age, presence: true
+    validates :password, length: { in: 6..20 }
+    validates :email, format: { with: URI::MailTo::EMAIL_REGEXP } 
+   
+
     
 
     # def self.search(search)

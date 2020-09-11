@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   delete '/logout', to: 'welcome#logout', as: 'logout'
   post '/login', to: 'welcome#login', as: 'login'
  
-
+  
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

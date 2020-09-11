@@ -2,24 +2,11 @@
 <html>
 <head>
 <h1 class="card text-center mx-auto mt-3"> <%= @user.name %> </h1>
-<div>
+<div class= text-center>
 <%= image_tag @user.profile_img_url %> 
 </div>
 </head>
-=======
-<h1 class="card text-center mx-auto mt-5"> <%= @user.name %> </h1>
-<div class=text-center>
-<%= image_tag @user.profile_img_url %> 
-</div>
-<div class=text-center>
->>>>>>> 012a486ad75ecaba15d41afa50b2da78515fcd34
-=======
-<h1 class="card text-center mx-auto mt-5"> <%= @user.name %> </h1>
-<div class=text-center>
-<%= image_tag @user.profile_img_url %> 
-</div>
-<div class=text-center>
->>>>>>> 012a486ad75ecaba15d41afa50b2da78515fcd34
+<div class= text-center>
 <%= flash[:success] %>
 </div>
 <div class="card text-center mx-auto mt-5">
@@ -58,7 +45,7 @@
 <% if @user.comments.empty? == false %>
 
 <% @user.comments.each do |comment_instance| %>
-"<%= comment_instance.description %>" attached to post titled <%= link_to comment_instance.post.title, post_path(comment_instance.post.id) %> written by <%= link_to comment_instance.post.user.username, user_path(comment_instance.post.user.id) %>  <br> 
+"<%= comment_instance.description %>" attached to post titled <%= link_to comment_instance.post.title, post_path(comment_instance.post.id) %> written by <%= link_to comment_instance.post.user.name, user_path(comment_instance.post.user.id) %>  <br> 
 <% end %>
 
 <% else%>
