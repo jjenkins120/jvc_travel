@@ -44,7 +44,7 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    if @post.update(post_params(:title, :description, :destination))
+    if @post.update(post_params(:title, :description, :destination, :image, :trip_id, tag_ids:[], tags_attributes: [:name]))
         redirect_to post_path(@post)
     else 
         flash[:errors] = @post.errors.full_messages
