@@ -7,5 +7,14 @@ head {
 }
 .card {
     color: white;
-    margin: auto;
+}
+
+
+
+.post-img{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border: 2px solid white;
+    object-fit: cover;
 }
