@@ -9,15 +9,37 @@
 <%end%>
 
 
-<%= form_for @post do |f| %>
 
 
-<p>Post Details</p>
-	<%= f.label :title %>
-	<%= f.text_field :title%><br><br>
-    <%= f.label :description %><br>
-    <%= f.text_area :description%><br><br>
-    
-	<%= f.submit %>
-
-<% end %>
+    <div class="container new-post" style="width: 40rem;">
+        <%= form_for @post do |f| %>
+        <h2 class=text-center>Edit your post</h2>
+        <div class="form-group">
+            <%= f.label :title, 'Title' %>
+            <%= f.text_field :title, class: 'form-control'%>
+        </div>
+        <%= f.label :description %>
+        <div class = "form-group">
+            <%= f.text_area :description, class: 'form-control', placeholder: 'Tell us about your trip!'%>
+        </div>
+        <%= f.label :trip %>
+        <div class="form-group">
+            <%= f.collection_select :trip_id, @current_user.trips, :id, :display_destination_and_date, {:class  => 'form-control'} %>
+        </div>
+        <%= f.label :image_url %>
+        <div class="form-group">
+            <%= f.text_field :image, class: 'form-control'%>
+        </div>
+        <%= f.label :choose_your_trip_tags %><br>
+        <div class="form-check">
+            <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name %>
+        </div>
+        <%= f.fields_for :tags, @post.tags.build do |tags_fields| %>
+            <div class="form-group">
+                <%= tags_fields.label :add_a_custom_tag_to_your_post %>
+                <%= tags_fields.text_field :name, class: 'form-control', placeholder: 'Your tag!' %>
+            </div>
+        <% end %><br>
+        <%= f.submit 'Submit', class: "btn btn-primary create-btn" %>
+        <% end %>
+    </div>
