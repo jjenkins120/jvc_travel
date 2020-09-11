@@ -38,17 +38,6 @@ User.create(
 )
 end
 
-puts "seeding destinations"
-
-50.times do
-Destination.create(
-    city: Faker::Address.city, 
-    country: Faker::Address.country, 
-    population: rand(30000..40000000), 
-    known_for: Faker::Quote.matz
-)
-end
-
 puts "seeding trips"
 
 15.times do
@@ -63,12 +52,13 @@ end
 
 puts "seeding posts"
 
-50.times do
+10.times do
 Post.create(
     title: Faker::App.name, 
     description: Faker::Quote.famous_last_words, 
     likes: rand(0..1000),
-    trip_id: Trip.all.sample.id,  
+    trip_id: Trip.all.sample.id,
+    image: "https://www.nycgo.com/images/venues/42981/washingtonstreet-dumbo-brooklyn-nyc-dumbostreetscenes_julienneschaer_207.jpg"
 )
 end
 
