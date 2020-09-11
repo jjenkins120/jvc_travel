@@ -25,17 +25,29 @@ Destination.destroy_all
 puts "seeding users"
 
 50.times do
-response = RestClient.get 'https://randomuser.me/api/'
-random_hash = JSON.parse(response.body)
+#response = RestClient.get 'https://randomuser.me/api/'
+#random_hash = JSON.parse(response.body)
+#random_hash["results"][0]["picture"]["large"]
 User.create(
     name: Faker::Name.name,
-    username: Faker::Internet.unique.username , 
+    username: Faker::Internet.unique.username, 
     email: Faker::Internet.email, 
     age: rand(18..95),
-    profile_img_url: random_hash["results"][0]["picture"]["large"], 
+    profile_img_url: 'https://image.flaticon.com/icons/png/128/2919/2919600.png',
     favorite_destination: Faker::Address.city, 
     password: "password"
 )
+end
+
+puts "seeding destinations"
+
+50.times do
+Destination.create(
+        city: Faker::Address.city, 
+        country: Faker::Address.country, 
+        population: rand(30000..40000000), 
+        known_for: Faker::Quote.matz
+    )
 end
 
 puts "seeding trips"
@@ -82,6 +94,7 @@ end
 # end
 
 puts "DONE!"
+
 
 
 
