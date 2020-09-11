@@ -221,13 +221,13 @@ end
 
 puts "seeding posts"
 
-10.times do
+50.times do
 Post.create(
     title: Faker::App.name, 
     description: Faker::Quote.famous_last_words, 
     likes: rand(0..1000),
     trip_id: Trip.all.sample.id,
-    image: "https://www.nycgo.com/images/venues/42981/washingtonstreet-dumbo-brooklyn-nyc-dumbostreetscenes_julienneschaer_207.jpg"
+    image: "https://img.theculturetrip.com/1024x574/smart/wp-content/uploads/2020/03/mexico1.jpg"
 )
 end
 

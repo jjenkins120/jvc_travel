@@ -28,7 +28,7 @@ class PostsController < ApplicationController
       #ActiveRecord::HasManyThroughCantAssociateThroughHasOneOrManyReflection (Cannot modify association 'User#posts' because the source reflection class 'Post' is associated to 'Trip' via :has_many.):
       #why dont i need that line? It already associates post with trip and user but how? Is it through the trip model?
       byebug 
-      redirect_to user_path(@current_user)
+      redirect_to post_path(@post)
     else 
       flash[:errors] = @post.errors.full_messages
       redirect_to new_post_path(@current_user)
@@ -44,7 +44,7 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    if @post.update(post_params(:title, :description, :destination))
+    if @post.update(post_params(:title, :description, :destination, :image, :trip_id, tag_ids:[], tags_attributes: [:name]))
         redirect_to post_path(@post)
     else 
         flash[:errors] = @post.errors.full_messages

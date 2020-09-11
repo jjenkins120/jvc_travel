@@ -38,7 +38,7 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment.destroy
-    redirect_to posts_path
+    redirect_to post_path(@comment.post)
   end
 
   private
@@ -48,7 +48,8 @@ class CommentsController < ApplicationController
   end
 
   def comment_params
-    params.require(:comment).permit(:description, :post_id)
+    params[:comment][:user_id] = current_user.id
+    params.require(:comment).permit(:description, :post_id, :user_id)
   end
 
 
