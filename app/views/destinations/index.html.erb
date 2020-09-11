@@ -4,14 +4,21 @@
 <h2> Expand your life </h2>
 </head>
 <body>
-<div class="list-group">
+<div class="dropdown">
+ <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Destinations
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 <% @destinations.each do |destination|%>
   
-    <%= link_to destination.full_name, destination_path(destination), class: "list-group-item list-group-item-action"%>
+    <%= link_to destination.full_name, destination_path(destination), class: "dropdown-item"%>
   
     
   <%end%>
     </div>
+style="width: 40rem;
+   
+  
 
 <h3> Top Five Destinations </h3>
   <% @top_five.each do |destination|%>

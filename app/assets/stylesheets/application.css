@@ -48,10 +48,11 @@
   }*/
   body{ 
   background-image: 
- url("https://images.unsplash.com/photo-1599635475666-e2dd6ed06c7c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80");
-  
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 90em 90em;
+  url("https://images.unsplash.com/photo-1599635475666-e2dd6ed06c7c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"),
+    url("https://images.unsplash.com/photo-1599635475666-e2dd6ed06c7c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80");
+  background-attachment: fixed, scroll;
+  background-repeat: no-repeat, repeat-y;
+  background-position: center, center;
+  background-size: 90em 90em, 90em 90em;
   opacity: 1;
 }
