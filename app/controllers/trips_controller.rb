@@ -16,7 +16,7 @@ class TripsController < ApplicationController
 
   def create
     @current_user = current_user
-    @trip = Trip.create(trip_params(:duration, :cost, :user_id, destination_attributes: [:city, :country]))
+    @trip = Trip.create(trip_params(:duration, :cost, :user_id, :title, destination_attributes: [:city, :country]))
     if @trip.save
       flash[:trip] = "Your trip has been added!!!"
       @current_user.trips << @trip

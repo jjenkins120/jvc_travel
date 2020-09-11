@@ -25,9 +25,10 @@ Destination.destroy_all
 puts "seeding users"
 
 50.times do
-#response = RestClient.get 'https://randomuser.me/api/'
-#random_hash = JSON.parse(response.body)
-#random_hash["results"][0]["picture"]["large"]
+#  response = RestClient.get 'https://randomuser.me/api/'
+#  random_hash = JSON.parse(response.body)
+# random_hash["results"][0]["picture"]["medium"]
+#'https://image.flaticon.com/icons/png/128/2919/2919600.png'
 User.create(
     name: Faker::Name.name,
     username: Faker::Internet.unique.username, 
