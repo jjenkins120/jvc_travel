@@ -6,7 +6,6 @@
 
   <div class="container new-post" style="width: 40rem;">
         <%= form_for @comment do |f| %>
-        <h2 class=text-center>Create a New Comment!</h2>
         <%= f.label :description %>
         <div class = "form-group">
             <%= f.text_area :description, class: 'form-control', placeholder: 'Tell us about your trip!'%>
